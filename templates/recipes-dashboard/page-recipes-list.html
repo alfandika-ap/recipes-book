@@ -1,0 +1,97 @@
+{% extends 'recipes-dashboard/base-dashboard.html' %} 
+{% block title %}All Recipes{% endblock %} 
+{% block content %}
+<div class="max-w-md mx-auto bg-white min-h-screen pb-20">
+  
+  <header class="p-4 flex justify-between items-center">
+    <div>
+      <h1 class="text-xl font-bold text-amber-600 tracking-tight">
+        All Recipes
+      </h1>
+      <p class="text-sm text-gray-600 mt-1">Discover delicious recipes to try</p>
+    </div>
+  </header>
+
+  <div class="px-4 mb-6">
+    <div class="relative">
+      <form method="GET" action="" class="w-full">
+        <input type="text" name="search" placeholder="Search recipes..." value="{{ search_query }}" class="w-full rounded-full py-2 px-4 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent">
+        <button type="submit" class="absolute right-3 top-1/2 transform -translate-y-1/2">
+          <i data-lucide="search" class="w-5 h-5 text-gray-500"></i>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <div class="px-4 mb-6">
+    <div class="mb-2 flex justify-between items-center">
+      <h2 class="text-lg font-bold text-gray-800">
+        {% if search_query %}
+          Search Results for "{{ search_query }}"
+        {% else %}
+          All Recipes
+        {% endif %}
+      </h2>
+      <div class="text-sm text-gray-500">{{ recipes.paginator.count }} recipes</div>
+    </div>
+    
+    {% if search_query %}
+    <div class="mb-4">
+      <a href="{% url 'recipes-list-page' %}" class="text-amber-600 text-sm flex items-center">
+        <i data-lucide="x" class="w-4 h-4 mr-1"></i> Clear search
+      </a>
+    </div>
+    {% endif %}
+
+    <div class="space-y-4">
+      {% if recipes %}
+        {% for recipe in recipes %}
+          {% include "recipes-dashboard/components/recipe-card.html" with recipe=recipe show_edit=False %}
+        {% endfor %}
+      {% else %}
+        <div class="py-10 flex flex-col items-center justify-center">
+          <div class="h-20 w-20 bg-gray-100 rounded-full flex items-center justify-center mb-4">
+            <i data-lucide="chef-hat" class="w-10 h-10 text-gray-400"></i>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-700">No recipes found</h3>
+          <p class="text-sm text-gray-500 mt-1 text-center">Try changing your search or filters</p>
+        </div>
+      {% endif %}
+    </div>
+    
+    {% if recipes.has_other_pages %}
+    <div class="mt-8 flex justify-center">
+      <div class="flex space-x-1">
+        {% if recipes.has_previous %}
+        <a href="?page={{ recipes.previous_page_number }}{% if search_query %}&search={{ search_query }}{% endif %}" class="px-3 py-2 rounded-md bg-gray-100 text-gray-700 hover:bg-gray-200">
+          <i data-lucide="chevron-left" class="w-5 h-5"></i>
+        </a>
+        {% else %}
+        <span class="px-3 py-2 rounded-md bg-gray-100 text-gray-400 cursor-not-allowed">
+          <i data-lucide="chevron-left" class="w-5 h-5"></i>
+        </span>
+        {% endif %}
+        
+        {% for i in recipes.paginator.page_range %}
+          {% if recipes.number == i %}
+            <a href="?page={{ i }}{% if search_query %}&search={{ search_query }}{% endif %}" class="px-3 py-2 rounded-md bg-amber-500 text-white">{{ i }}</a>
+          {% elif i > recipes.number|add:'-3' and i < recipes.number|add:'3' %}
+            <a href="?page={{ i }}{% if search_query %}&search={{ search_query }}{% endif %}" class="px-3 py-2 rounded-md bg-gray-100 text-gray-700 hover:bg-gray-200">{{ i }}</a>
+          {% endif %}
+        {% endfor %}
+        
+        {% if recipes.has_next %}
+        <a href="?page={{ recipes.next_page_number }}{% if search_query %}&search={{ search_query }}{% endif %}" class="px-3 py-2 rounded-md bg-gray-100 text-gray-700 hover:bg-gray-200">
+          <i data-lucide="chevron-right" class="w-5 h-5"></i>
+        </a>
+        {% else %}
+        <span class="px-3 py-2 rounded-md bg-gray-100 text-gray-400 cursor-not-allowed">
+          <i data-lucide="chevron-right" class="w-5 h-5"></i>
+        </span>
+        {% endif %}
+      </div>
+    </div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %} 

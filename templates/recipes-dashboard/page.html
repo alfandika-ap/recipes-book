@@ -1,0 +1,275 @@
+{% extends 'recipes-dashboard/base-dashboard.html' %} 
+{% block title %}Dashboard{% endblock %} 
+{% block content %}
+
+  <!-- Popular Recipes -->
+  <div class="px-4 mb-6">
+    <h2 class="text-lg font-bold text-gray-800 mb-3">Popular Recipes</h2>
+    <div class="grid grid-cols-2 gap-4">
+      <div class="col-span-1">
+        <div
+          class="rounded-xl overflow-hidden shadow-md bg-white h-full transition-all hover:shadow-lg"
+        >
+          <div class="relative">
+            <img
+              src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?q=80&w=1936&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="Fish Curry"
+              class="w-full h-32 object-cover"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"
+            ></div>
+          </div>
+          <div class="p-3">
+            <h3 class="text-base font-semibold">Fish Curry</h3>
+            <div class="flex items-center mt-1">
+              <div class="h-5 w-5 rounded-full overflow-hidden mr-1">
+                <img
+                  src="https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&h=100&q=80"
+                  alt="Joshua"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+              <p class="text-xs text-gray-500 font-medium">by Joshua</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-span-1">
+        <div
+          class="rounded-xl overflow-hidden shadow-md bg-white h-full transition-all hover:shadow-lg"
+        >
+          <div class="relative">
+            <img
+              src="https://images.unsplash.com/photo-1567620832903-9fc6debc209f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&h=150&q=80"
+              alt="Pasta"
+              class="w-full h-32 object-cover"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"
+            ></div>
+          </div>
+          <div class="p-3">
+            <h3 class="text-base font-semibold">Creamy Pasta</h3>
+            <div class="flex items-center mt-1">
+              <div class="h-5 w-5 rounded-full overflow-hidden mr-1">
+                <img
+                  src="https://images.unsplash.com/photo-1601288496920-b6154fe3626a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&h=100&q=80"
+                  alt="Emma"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+              <p class="text-xs text-gray-500 font-medium">by Emma Watson</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Recipe Categories -->
+  <div class="px-4 grid grid-cols-3 gap-4 mb-6">
+    <div
+      class="rounded-xl overflow-hidden shadow-sm bg-white transition-transform hover:scale-105"
+    >
+      <div class="relative">
+        <img
+          src="https://images.unsplash.com/photo-1547592180-85f173990554?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&h=150&q=80"
+          alt="Soup"
+          class="w-full h-24 object-cover"
+        />
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"
+        ></div>
+      </div>
+      <p class="text-sm font-semibold px-2 py-2 text-center">Soup Recipes</p>
+    </div>
+    <div
+      class="rounded-xl overflow-hidden shadow-sm bg-white transition-transform hover:scale-105"
+    >
+      <div class="relative">
+        <img
+          src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&h=150&q=80"
+          alt="Main Course"
+          class="w-full h-24 object-cover"
+        />
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"
+        ></div>
+      </div>
+      <p class="text-sm font-semibold px-2 py-2 text-center">
+        Main Course Special
+      </p>
+    </div>
+    <div
+      class="rounded-xl overflow-hidden shadow-sm bg-white transition-transform hover:scale-105"
+    >
+      <div class="relative">
+        <img
+          src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&h=150&q=80"
+          alt="Grill"
+          class="w-full h-24 object-cover"
+        />
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"
+        ></div>
+      </div>
+      <p class="text-sm font-semibold px-2 py-2 text-center">Grill Recipes</p>
+    </div>
+  </div>
+
+  <!-- Featured Recipes Slider -->
+  <div class="mb-6">
+    <div class="px-4 mb-3">
+      <h2 class="text-lg font-bold text-gray-800">Featured Recipes</h2>
+    </div>
+
+    <div class="swiper featured-swiper">
+      <div class="swiper-wrapper">
+        <!-- Slide 1 -->
+        <div class="swiper-slide px-4 pb-3">
+          <div
+            class="rounded-xl overflow-hidden shadow-md bg-white transition-all hover:shadow-lg"
+          >
+            <div class="relative">
+              <img
+                src="https://images.unsplash.com/photo-1525351484163-7529414344d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=300&q=80"
+                alt="Cheese Grill Sandwich"
+                class="w-full h-48 object-cover"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"
+              ></div>
+            </div>
+            <div class="p-3">
+              <div class="flex items-center mb-2">
+                <div
+                  class="h-6 w-6 rounded-full bg-amber-500 flex items-center justify-center mr-2"
+                >
+                  <i data-lucide="utensils" class="w-3 h-3 text-white"></i>
+                </div>
+                <span class="text-xs font-medium text-amber-600"
+                  >Featured Recipe</span
+                >
+              </div>
+              <h3 class="text-base font-semibold">Cheese Grill Sandwich</h3>
+              <div class="flex items-center mt-1">
+                <div class="h-5 w-5 rounded-full overflow-hidden mr-1">
+                  <img
+                    src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&h=100&q=80"
+                    alt="Sarah"
+                    class="w-full h-full object-cover"
+                  />
+                </div>
+                <p class="text-xs text-gray-500 font-medium">by Sarah Smith</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="swiper-slide px-4 pb-3">
+          <div
+            class="rounded-xl overflow-hidden shadow-md bg-white transition-all hover:shadow-lg"
+          >
+            <div class="relative">
+              <img
+                src="https://images.unsplash.com/photo-1567620832903-9fc6debc209f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=300&q=80"
+                alt="Creamy Pasta"
+                class="w-full h-48 object-cover"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"
+              ></div>
+            </div>
+            <div class="p-3">
+              <div class="flex items-center mb-2">
+                <div
+                  class="h-6 w-6 rounded-full bg-amber-500 flex items-center justify-center mr-2"
+                >
+                  <i data-lucide="utensils" class="w-3 h-3 text-white"></i>
+                </div>
+                <span class="text-xs font-medium text-amber-600"
+                  >Featured Recipe</span
+                >
+              </div>
+              <h3 class="text-base font-semibold">Creamy Garlic Pasta</h3>
+              <div class="flex items-center mt-1">
+                <div class="h-5 w-5 rounded-full overflow-hidden mr-1">
+                  <img
+                    src="https://images.unsplash.com/photo-1601288496920-b6154fe3626a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&h=100&q=80"
+                    alt="Emma"
+                    class="w-full h-full object-cover"
+                  />
+                </div>
+                <p class="text-xs text-gray-500 font-medium">by Emma Watson</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="swiper-slide px-4 pb-3">
+          <div
+            class="rounded-xl overflow-hidden shadow-md bg-white transition-all hover:shadow-lg"
+          >
+            <div class="relative">
+              <img
+                src="https://images.unsplash.com/photo-1565299507177-b0ac66763828?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=300&q=80"
+                alt="Grilled Salmon"
+                class="w-full h-48 object-cover"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"
+              ></div>
+            </div>
+            <div class="p-3">
+              <div class="flex items-center mb-2">
+                <div
+                  class="h-6 w-6 rounded-full bg-amber-500 flex items-center justify-center mr-2"
+                >
+                  <i data-lucide="utensils" class="w-3 h-3 text-white"></i>
+                </div>
+                <span class="text-xs font-medium text-amber-600"
+                  >Featured Recipe</span
+                >
+              </div>
+              <h3 class="text-base font-semibold">Grilled Salmon with Herbs</h3>
+              <div class="flex items-center mt-1">
+                <div class="h-5 w-5 rounded-full overflow-hidden mr-1">
+                  <img
+                    src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&h=100&q=80"
+                    alt="Michael"
+                    class="w-full h-full object-cover"
+                  />
+                </div>
+                <p class="text-xs text-gray-500 font-medium">
+                  by Michael Brown
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+  // Initialize Swiper
+  const swiper = new Swiper(".featured-swiper", {
+    slidesPerView: 1.1,
+    spaceBetween: 10,
+    centeredSlides: false,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    autoplay: {
+      delay: 1000,
+    },
+  });
+</script>
+{% endblock %}

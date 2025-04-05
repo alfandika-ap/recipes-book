@@ -1,0 +1,125 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RecipeBook - {% block title %}Dashboard{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'output.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .swiper-pagination-bullet-active {
+            background-color: #f59e0b !important;
+        }
+        .tab-active {
+          color: #000;
+          border-bottom: 2px solid #000;
+        }
+        .star-filled {
+          color: #F59E0B;
+        }
+        .star-empty {
+          color: #D1D5DB;
+        }
+        .tab-content {
+          display: none;
+        }
+        .tab-content.active {
+          display: block;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+  <div class="max-w-md mx-auto bg-white min-h-screen pb-20">
+    <!-- Header -->
+  <header class="p-4 flex justify-between items-center">
+    <div>
+      <h1 class="text-xl font-bold text-amber-600 tracking-tight">
+        Your Saved Recipes
+      </h1>
+      <h2 class="text-lg font-bold text-gray-800 tracking-tight">
+        Hello, {{ request.user.username }}
+      </h2>
+      <p class="text-sm text-gray-600 mt-1">Recipes you've bookmarked for later</p>
+    </div>
+    <div class="flex gap-4">
+      <a href="/logout" class="p-2 rounded-full hover:bg-gray-100 transition-colors">
+        <i data-lucide="log-out" class="w-6 h-6 text-gray-700"></i>
+      </a>
+    </div>
+  </header>
+  {% include 'components/messages.html' %}
+
+  
+    {% block content %}{% endblock %}
+    <!-- Bottom Navigation -->
+    <div
+      class="fixed z-30 bottom-0 left-0 right-0 max-w-md mx-auto bg-white border-t border-gray-200 shadow-lg"
+    >
+      <div class="flex justify-between items-center px-6 py-3">
+        <a
+        href="{% url 'recipes-list-page' %}"
+        class="flex flex-col items-center w-24 relative group hover:text-gray-900 transition-colors {% if request.resolver_match.url_name == 'recipes-list-page' %}text-gray-900{% else %}text-gray-400{% endif %}"
+      >
+        <div
+          class="absolute -top-2 {% if request.resolver_match.url_name == 'recipes-list-page' %}w-8 opacity-100{% else %}w-0 opacity-0{% endif %} h-1 bg-black rounded-full transition-all duration-300 group-hover:w-8 group-hover:opacity-100"
+        ></div>
+        <i
+          data-lucide="home"
+          class="w-6 h-6 {% if request.resolver_match.url_name == 'recipes-list-page' %}text-gray-900{% else %}text-gray-400{% endif %} group-hover:text-gray-900 transition-colors"
+        ></i>
+        <span
+          class="text-xs mt-1 font-medium {% if request.resolver_match.url_name == 'recipes-list-page' %}text-gray-900{% else %}text-gray-400{% endif %} group-hover:text-gray-900 transition-colors"
+          >Home</span
+        >
+      </a>
+        <a
+          href="{% url 'saved-recipes-page' %}"
+          class="flex flex-col items-center w-24 relative group hover:text-gray-900 transition-colors {% if request.resolver_match.url_name == 'saved-recipes-page' %}text-gray-900{% else %}text-gray-400{% endif %}"
+        >
+          <div
+            class="absolute -top-2 {% if request.resolver_match.url_name == 'saved-recipes-page' %}w-8 opacity-100{% else %}w-0 opacity-0{% endif %} h-1 bg-black rounded-full transition-all duration-300 group-hover:w-8 group-hover:opacity-100"
+          ></div>
+          <i
+            data-lucide="bookmark"
+            class="w-6 h-6 {% if request.resolver_match.url_name == 'saved-recipes-page' %}text-gray-900{% else %}text-gray-400{% endif %} group-hover:text-gray-900 transition-colors"
+          ></i>
+          <span
+            class="text-xs mt-1 font-medium {% if request.resolver_match.url_name == 'saved-recipes-page' %}text-gray-900{% else %}text-gray-400{% endif %} group-hover:text-gray-900 transition-colors"
+            >Saved</span
+          >
+        </a>
+        <a
+          href="{% url 'my-recipes-page' %}"
+          class="flex flex-col items-center w-24 relative group hover:text-gray-900 transition-colors {% if request.resolver_match.url_name == 'my-recipes-page' %}text-gray-900{% else %}text-gray-400{% endif %}"
+        >
+          <div
+            class="absolute -top-2 {% if request.resolver_match.url_name == 'my-recipes-page' %}w-8 opacity-100{% else %}w-0 opacity-0{% endif %} h-1 bg-black rounded-full transition-all duration-300 group-hover:w-8 group-hover:opacity-100"
+          ></div>
+          <i
+            data-lucide="chef-hat"
+            class="w-6 h-6 {% if request.resolver_match.url_name == 'my-recipes-page' %}text-gray-900{% else %}text-gray-400{% endif %} group-hover:text-gray-900 transition-colors"
+          ></i>
+          <span
+            class="text-xs text-center mt-1 font-medium {% if request.resolver_match.url_name == 'my-recipes-page' %}text-gray-900{% else %}text-gray-400{% endif %} group-hover:text-gray-900 transition-colors"
+            >My Recipes</span
+          >
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html> 

@@ -1,0 +1,55 @@
+{% extends 'recipes-dashboard/base-dashboard.html' %} 
+{% block title %}My Recipes{% endblock %} 
+{% block content %}
+<div class="max-w-md mx-auto bg-white min-h-screen pb-20">
+  
+  <header class="p-4 flex justify-between items-center">
+    <div>
+      <h1 class="text-xl font-bold text-amber-600 tracking-tight">
+        My Recipes
+      </h1>
+      <p class="text-sm text-gray-600 mt-1">Recipes you've created</p>
+    </div>
+    <div>
+      <a href="/add-recipe/" class="px-4 py-2 bg-amber-500 text-white rounded-full text-sm font-medium flex items-center shadow-md hover:bg-amber-600 transition-colors">
+        <i data-lucide="plus" class="w-4 h-4 mr-1"></i>
+        Add Recipe
+      </a>
+    </div>
+  </header>
+
+  <!-- My Recipes List -->
+  <div class="px-4 mb-6">
+    <div class="mb-2 flex justify-between items-center">
+      <h2 class="text-lg font-bold text-gray-800">Your Recipes</h2>
+    </div>
+    <div class="space-y-4">
+      {% if my_recipes %}
+        {% for recipe in my_recipes %}
+          {% include "recipes-dashboard/components/recipe-card.html" with recipe=recipe show_edit=True %}
+        {% endfor %}
+      {% else %}
+        <div class="py-10 flex flex-col items-center justify-center">
+          <div class="h-20 w-20 bg-gray-100 rounded-full flex items-center justify-center mb-4">
+            <i data-lucide="chef-hat" class="w-10 h-10 text-gray-400"></i>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-700">No recipes created yet</h3>
+          <p class="text-sm text-gray-500 mt-1 text-center">Start creating your own recipes to build your collection</p>
+          <a href="/add-recipe/" class="mt-4 px-4 py-2 bg-amber-500 text-white rounded-full text-sm font-medium flex items-center">
+            <i data-lucide="plus" class="w-4 h-4 mr-1"></i>
+            Create First Recipe
+          </a>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+
+</div>
+
+<script>
+  // Initialize Lucide icons
+  if (typeof lucide !== 'undefined') {
+    lucide.createIcons();
+  }
+</script>
+{% endblock %} 

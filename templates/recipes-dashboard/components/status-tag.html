@@ -1,0 +1,21 @@
+{% if status == "published" %}
+  <span class="px-2 py-1 bg-green-500 text-xs rounded-full text-white font-medium">
+    Published
+  </span>
+{% elif status == "review" %}
+  <span class="px-2 py-1 bg-amber-500 text-xs rounded-full text-white font-medium">
+    In Review
+  </span>
+{% elif status == "draft" %}
+  <span class="px-2 py-1 bg-gray-500 text-xs rounded-full text-white font-medium">
+    Draft
+  </span>
+{% elif status == "rejected" %}
+  <span class="px-2 py-1 bg-red-500 text-xs rounded-full text-white font-medium">
+    Rejected
+  </span>
+{% else %}
+  <span class="px-2 py-1 bg-blue-500 text-xs rounded-full text-white font-medium">
+    {{ status|title }}
+  </span>
+{% endif %} 

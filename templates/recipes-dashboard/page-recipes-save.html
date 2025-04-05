@@ -1,0 +1,29 @@
+{% extends 'recipes-dashboard/base-dashboard.html' %} 
+{% block title %}Saved Recipes{% endblock %} 
+{% block content %}
+<div class="max-w-md mx-auto bg-white min-h-screen pb-20">
+  <div class="px-4 mb-6">
+    <div class="mb-2 flex justify-between items-center">
+      <h2 class="text-lg font-bold text-gray-800">Your Collection</h2>
+    </div>
+    <div class="space-y-4">
+      {% if saved_recipes %}
+        {% for item in saved_recipes %}
+          {% include "recipes-dashboard/components/recipe-card.html" with recipe=item.recipe show_edit=False %}
+        {% endfor %}
+      {% else %}
+        <div class="py-10 flex flex-col items-center justify-center">
+          <div class="h-20 w-20 bg-gray-100 rounded-full flex items-center justify-center mb-4">
+            <i data-lucide="bookmark" class="w-10 h-10 text-gray-400"></i>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-700">No saved recipes yet</h3>
+          <p class="text-sm text-gray-500 mt-1 text-center">Start saving your favorite recipes to build your collection</p>
+          <a href="{% url 'recipes-list-page' %}" class="mt-4 px-4 py-2 bg-amber-500 text-white rounded-full text-sm font-medium">
+            Discover Recipes
+          </a>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}
