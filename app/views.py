@@ -24,7 +24,7 @@ class LoginView(View):
             return render(request, "auth/login.html")
 
         login(request, authenticate_user)
-        return redirect("dashboard-page")
+        return redirect("recipes-list-page")
 
 
 class RegisterView(View):
