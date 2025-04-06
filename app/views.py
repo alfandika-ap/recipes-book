@@ -6,6 +6,7 @@ from django.contrib import messages
 from core.mixins import LoginCheckMixin
 from apps.recipes.models import Recipe, Category, Ingredient, Instruction, RecipeSaved
 from django.core.paginator import Paginator
+from apps.recipes.tasks import task_review_recipe
 
 
 class LoginView(View):
@@ -175,6 +176,9 @@ class AddRecipeView(LoginCheckMixin, View):
                     description=instruction_text,
                     recipe=recipe
                 )
+        
+        # Task runner 
+        task_review_recipe(recipe.id)
         
         messages.success(request, "Recipe successfully created")
         return redirect('my-recipes-page')

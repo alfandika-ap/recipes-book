@@ -32,6 +32,7 @@ class Instruction(BaseModel):
   number = models.IntegerField()
   description = models.TextField()
   recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
+  
 
 class RecipeSaved(BaseModel):
   recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
